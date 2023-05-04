@@ -22,7 +22,7 @@ const Loginscreen = () => {
 
         try {
             setloading(true);
-            const result = (await axios.post('/api/users/login', user)).data
+            const result = (await axios.post('https://thehotelbackend.onrender.com/api/users/login', user)).data
             setloading(false);
             console.log(result)
 

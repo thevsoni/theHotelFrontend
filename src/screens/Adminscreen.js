@@ -66,7 +66,7 @@ export function Bookings() {
     useEffect(() => {
         async function func() {
             try {
-                const data = (await axios.get('/api/bookings/getallbookings')).data
+                const data = (await axios.get('https://thehotelbackend.onrender.com/api/bookings/getallbookings')).data
                 setbookings(data);
                 setloading(false);
             } catch (error) {
@@ -127,7 +127,7 @@ export function Rooms() {
     useEffect(() => {
         async function func() {
             try {
-                const data = (await axios.get('/api/rooms/getallrooms')).data
+                const data = (await axios.get('https://thehotelbackend.onrender.com/api/rooms/getallrooms')).data
                 setrooms(data);
                 console.log(data)
                 setloading(false);
@@ -193,7 +193,7 @@ export function Users() {
     useEffect(() => {
         async function func() {
             try {
-                const data = (await axios.get('/api/users/getallusers')).data
+                const data = (await axios.get('https://thehotelbackend.onrender.com/api/users/getallusers')).data
                 console.log(data)
                 setusers(data);
                 setloading(false);
@@ -278,7 +278,7 @@ export function Addroom() {
 
         try {
             setloading(true)
-            const result = (await axios.post('/api/rooms/addroom', newroom)).data
+            const result = (await axios.post('https://thehotelbackend.onrender.com/api/rooms/addroom', newroom)).data
             setloading(false)
             Swal.fire('Congratulation', 'Your room added Successfully', 'success')
 

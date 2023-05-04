@@ -28,7 +28,7 @@ const Registerscreen = () => {
             console.log(user)
             try {
                 setloading(true);
-                const result = (await axios.post('/api/users/register', user)).data
+                const result = (await axios.post('https://thehotelbackend.onrender.com/api/users/register', user)).data
                 setloading(false);
                 setsuccess(true);
 

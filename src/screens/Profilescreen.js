@@ -20,7 +20,7 @@ const Profilescreen = () => {
     const user = JSON.parse(localStorage.getItem('currentuser'));
     useEffect(() => {
         if (!user) {
-            window.location.href = '/login';
+            window.location.href = 'https://thehotelbackend.onrender.com/login';
         }
     }, [])
 
@@ -85,7 +85,7 @@ export function MyBookings() {
         async function func() {
             try {
                 setloading(true);
-                const data = (await axios.post('/api/bookings/getbookingsbyuserid', { userid: user._id })).data;
+                const data = (await axios.post('https://thehotelbackend.onrender.com/api/bookings/getbookingsbyuserid', { userid: user._id })).data;
                 setloading(false);
                 console.log(data)
                 setbookings(data);
@@ -102,7 +102,7 @@ export function MyBookings() {
     async function cancelBooking(bookingid, roomid) {
         try {
             setloading(true)
-            const result = (await axios.post('/api/bookings/cancelbooking', { bookingid, roomid })).data
+            const result = (await axios.post('https://thehotelbackend.onrender.com/api/bookings/cancelbooking', { bookingid, roomid })).data
             setloading(false)
             console.log(result)
             Swal.fire('Congratulation', 'Your room cancelled Successfully', 'success').then(result => { window.location.reload() })
