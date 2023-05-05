@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import Axios from '../ApiCall/Axios';
 
 
 import Loader from '../components/Loader';
@@ -28,16 +29,18 @@ const Registerscreen = () => {
             console.log(user)
             try {
                 setloading(true);
-                const result = (await axios.post('https://thehotelbackend.onrender.com/api/users/register', user)).data
+                const result = (await Axios.post('/api/users/register', user)).data
                 setloading(false);
                 setsuccess(true);
 
-                console.log(result)
+                // console.log(result)
 
                 setname('');
                 setemail('');
                 setpassword('');
                 setcpassword('');
+                localStorage.setItem('currentuser', JSON.stringify(result));
+                window.location.href = "/home"
             } catch (error) {
                 console.log(error)
                 setloading(false)

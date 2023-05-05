@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Axios from '../ApiCall/Axios';
 import { useParams } from 'react-router-dom';//to get params from url
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -43,7 +44,7 @@ const Bookingscreen = () => {
         }
 
         try {
-            const result = await axios.post('https://thehotelbackend.onrender.com/api/bookings/bookroom', bookingDetails)
+            const result = await Axios.post('/api/bookings/bookroom', bookingDetails)
             console.log("success on bookroom in bookingscreen", result);
         } catch (error) {
             console.log("somethings error on bookroom in bookingscreen", error);
@@ -69,7 +70,7 @@ const Bookingscreen = () => {
         async function fetch() {
             try {
                 setloading(true);
-                const data = (await axios.post("https://thehotelbackend.onrender.com/api/rooms/getroombyid", { roomid: roomid })).data;
+                const data = (await Axios.post("/api/rooms/getroombyid", { roomid: roomid })).data;
                 setroom(data);
                 settotalamount(data.rentperday * totaldays)
                 // console.log(data);
@@ -96,7 +97,7 @@ const Bookingscreen = () => {
 
         try {
             setloading(true);
-            const result = await axios.post('https://thehotelbackend.onrender.com/api/bookings/bookroom', bookingDetails)
+            const result = await Axios.post('/api/bookings/bookroom', bookingDetails)
             console.log("success on bookroom in bookingscreen", result);
             setloading(false);
             Swal.fire('Congratulation', 'Your room booked Successfully', 'success').then(result => { window.location.href = '/profile' })

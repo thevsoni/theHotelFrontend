@@ -4,6 +4,7 @@ import Loader from '../components/Loader';
 import Error from '../components/Error';
 
 import axios from 'axios';
+import Axios from '../ApiCall/Axios';
 
 import { Tabs } from 'antd'; //for tabs
 import Swal from 'sweetalert2';//to show popup
@@ -20,7 +21,7 @@ const Profilescreen = () => {
     const user = JSON.parse(localStorage.getItem('currentuser'));
     useEffect(() => {
         if (!user) {
-            window.location.href = 'https://thehotelbackend.onrender.com/login';
+            window.location.href = '/login';
         }
     }, [])
 
@@ -85,7 +86,7 @@ export function MyBookings() {
         async function func() {
             try {
                 setloading(true);
-                const data = (await axios.post('https://thehotelbackend.onrender.com/api/bookings/getbookingsbyuserid', { userid: user._id })).data;
+                const data = (await Axios.post('/api/bookings/getbookingsbyuserid', { userid: user._id })).data;
                 setloading(false);
                 console.log(data)
                 setbookings(data);
@@ -102,7 +103,7 @@ export function MyBookings() {
     async function cancelBooking(bookingid, roomid) {
         try {
             setloading(true)
-            const result = (await axios.post('https://thehotelbackend.onrender.com/api/bookings/cancelbooking', { bookingid, roomid })).data
+            const result = (await Axios.post('/api/bookings/cancelbooking', { bookingid, roomid })).data
             setloading(false)
             console.log(result)
             Swal.fire('Congratulation', 'Your room cancelled Successfully', 'success').then(result => { window.location.reload() })

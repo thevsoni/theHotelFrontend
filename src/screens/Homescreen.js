@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import Axios from '../ApiCall/Axios';
 import Room from '../components/Room';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -60,7 +61,7 @@ const Homescreen = () => {
             try {
                 setloading(true);
                 // const data = (await axios.get('/api/rooms/getallrooms')).data
-                const data = (await axios.get('https://thehotelbackend.onrender.com/api/rooms/getallrooms')).data
+                const data = (await Axios.get('/api/rooms/getallrooms')).data
                 // console.log(data)
                 //firstly we will get a object and inside there my data is inside data so use like above 
                 setrooms(data)

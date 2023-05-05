@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import Axios from '../ApiCall/Axios';
 
 const Loginscreen = () => {
 
@@ -22,7 +23,7 @@ const Loginscreen = () => {
 
         try {
             setloading(true);
-            const result = (await axios.post('https://thehotelbackend.onrender.com/api/users/login', user)).data
+            const result = (await Axios.post('/api/users/login', user)).data
             setloading(false);
             console.log(result)
 
