@@ -12,8 +12,8 @@ import Landingscreen from './screens/Landingscreen';
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <BrowserRouter>
+        <Navbar />
         <Routes>
 
           {/* <Route path='/' exact Component={Landingscreen} /> */}
@@ -26,15 +26,16 @@ function App() {
           <Route path='/profile' exact Component={Profilescreen} />
           <Route path='/admin' exact Component={Adminscreen} /> */}
 
-          <Route path='/' element={Landingscreen} />
-          <Route path='/home' element={Homescreen} />
-          {/* <Route path='/book/:roomid' element={Bookingscreen} /> */}
-          <Route path='/book/:roomid/:fromdate/:todate' element={Bookingscreen} />
-          <Route path='/register' element={Registerscreen} />
-          <Route path='/login' element={Loginscreen} />
+          <Route path='/' element={<Landingscreen />} />
+          <Route path='/home' element={<Homescreen />} />
+          {/* <Route path='/book/:roomid' element={<Bookingscreen/>} /> */}
+          <Route path='/book/:roomid/:fromdate/:todate' element={<Bookingscreen />} />
+          <Route path='/register' element={<Registerscreen />} />
+          <Route path='/login' element={<Loginscreen />} />
+          {/* <Route path='/login' element={<Login />} /> */}
 
-          <Route path='/profile' element={Profilescreen} />
-          <Route path='/admin' element={Adminscreen} />
+          <Route path='/profile' element={<Profilescreen />} />
+          <Route path='/admin' element={<Adminscreen />} />
         </Routes>
       </BrowserRouter>
     </div>
