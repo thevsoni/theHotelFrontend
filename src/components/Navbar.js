@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+    let navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('currentuser'));
 
     function logout() {
         localStorage.removeItem('currentuser');
-        window.location.href = '/login'
+        // window.location.href = '/login'
+        navigate("/login");
     }
     return (
         <>
@@ -22,17 +27,21 @@ const Navbar = () => {
                                     <i className="fa-solid fa-user" style={{ marginRight: "5px" }}></i>{user.name}
                                 </button>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="/profile">Profile</a>
-                                    <a className="dropdown-item" href="/" onClick={logout}>Logout</a>
+                                    {/* <a className="dropdown-item" href="/profile">Profile</a>
+                                    <a className="dropdown-item" href="/" onClick={logout}>Logout</a> */}
+                                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                                    <Link className="dropdown-item" to="/" onClick={logout}>Logout</Link>
                                 </div>
                             </div>
                             :
                             <>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/register">Register</a>
+                                    {/* <a className="nav-link" href="/register">Register</a> */}
+                                    <Link className="nav-link" to="/register">Register</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/login">Login</a>
+                                    {/* <a className="nav-link" href="/login">Login</a> */}
+                                    <Link className="nav-link" to="/login">Login</Link>
                                 </li>
                             </>
                         }

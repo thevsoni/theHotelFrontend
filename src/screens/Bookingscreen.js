@@ -106,11 +106,13 @@ const Bookingscreen = () => {
             const result = await Axios.post('/api/bookings/bookroom', bookingDetails)
             console.log("success on bookroom in bookingscreen", result);
             setloading(false);
-            Swal.fire('Congratulation', 'Your room booked Successfully', 'success').then(result => { window.location.href = '/profile' })
+            // Swal.fire('Congratulation', 'Your room booked Successfully', 'success').then(result => { window.location.href = '/profile' })
+            Swal.fire('Congratulation', 'Your room booked Successfully', 'success').then(result => { navigate('/profile') })
         } catch (error) {
             console.log("somethings error on bookroom in bookingscreen", error);
             setloading(false);
-            Swal.fire('Oops', 'Something went wrong', 'error').then(result => { window.location.href = '/bookings' })
+            // Swal.fire('Oops', 'Something went wrong', 'error').then(result => { window.location.href = '/bookings' })
+            Swal.fire('Oops', 'Something went wrong', 'error').then(result => { navigate('/bookings') })
 
         }
     }
