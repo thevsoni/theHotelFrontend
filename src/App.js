@@ -28,8 +28,8 @@ function App() {
 
           <Route path='/' element={Landingscreen} />
           <Route path='/home' element={Homescreen} />
-          {/* <Route path='/book/:roomid' exact Component={Bookingscreen} /> */}
-          <Route path='/book/:roomid/:fromdate/:todate' exact Component={Bookingscreen} />
+          {/* <Route path='/book/:roomid' element={Bookingscreen} /> */}
+          <Route path='/book/:roomid/:fromdate/:todate' element={Bookingscreen} />
           <Route path='/register' element={Registerscreen} />
           <Route path='/login' element={Loginscreen} />
 
