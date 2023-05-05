@@ -12,8 +12,8 @@ import Landingscreen from './screens/Landingscreen';
 function App() {
   return (
     <div className="App">
-      <Navbar />
       <BrowserRouter>
+        <Navbar />
         <Routes>
 
           {/* <Route path='/' exact Component={Landingscreen} /> */}

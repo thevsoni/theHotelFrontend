@@ -112,7 +112,7 @@ const Bookingscreen = () => {
             console.log("somethings error on bookroom in bookingscreen", error);
             setloading(false);
             // Swal.fire('Oops', 'Something went wrong', 'error').then(result => { window.location.href = '/bookings' })
-            Swal.fire('Oops', 'Something went wrong', 'error').then(result => { navigate('/bookings') })
+            Swal.fire('Oops', 'Something went wrong', 'error').then(result => { navigate('/profile') })
 
         }
     }
