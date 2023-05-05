@@ -6,6 +6,8 @@ import Loader from '../components/Loader';
 import Error from '../components/Error';
 import moment from 'moment';
 
+import { useNavigate } from 'react-router-dom';
+
 import StripeCheckout from 'react-stripe-checkout'; //stripe for payment integration but this is older version
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -15,6 +17,9 @@ import { PaymentElement } from '@stripe/react-stripe-js';
 import Swal from 'sweetalert2';//to show payment successfull or failed
 
 const Bookingscreen = () => {
+
+    let navigate = useNavigate();
+
     const [loading, setloading] = useState(true);
     const [error, seterror] = useState();
     const [room, setroom] = useState();
@@ -64,7 +69,8 @@ const Bookingscreen = () => {
 
     useEffect(() => {
         if (!localStorage.getItem('currentuser')) {
-            window.location.href = '/login'
+            // window.location.href = '/login'
+            navigate("/login")
         }
 
         async function fetch() {
