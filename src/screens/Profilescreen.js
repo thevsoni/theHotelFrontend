@@ -9,6 +9,7 @@ import Axios from '../ApiCall/Axios';
 import { Tabs } from 'antd'; //for tabs
 import Swal from 'sweetalert2';//to show popup
 
+import { useNavigate } from 'react-router-dom';
 
 import { Tag, Divider } from 'antd'; //antd chips
 
@@ -18,10 +19,13 @@ const { TabPane } = Tabs; //in older version ,we were using this
 
 const Profilescreen = () => {
 
+    let navigate = useNavigate();
+
     const user = JSON.parse(localStorage.getItem('currentuser'));
     useEffect(() => {
         if (!user) {
-            window.location.href = '/login';
+            // window.location.href = '/login';|
+            navigate("/login")
         }
     }, [])
 

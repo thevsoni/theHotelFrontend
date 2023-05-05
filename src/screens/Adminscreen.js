@@ -9,15 +9,18 @@ import Error from '../components/Error';
 
 import Swal from 'sweetalert2';//to show popup
 
+import { useNavigate } from 'react-router-dom';
 
 const Adminscreen = () => {
 
+    let navigate = useNavigate()
     useEffect(() => {
         // if (!(JSON.parse(localStorage.getItem('currentuser')))) {
         //     window.location.href = '/';
         // }
         if (!(JSON.parse(localStorage.getItem('currentuser')).isAdmin)) {
-            window.location.href = '/';
+            // window.location.href = '/';
+            navigate("/");
         }
     }, [])
 

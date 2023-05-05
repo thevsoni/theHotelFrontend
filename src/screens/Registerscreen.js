@@ -7,7 +7,11 @@ import Loader from '../components/Loader';
 import Error from '../components/Error';
 import Success from '../components/Success';
 
+import { useNavigate } from 'react-router-dom';
+
 const Registerscreen = () => {
+
+    let navigate = useNavigate();
 
     const [name, setname] = useState('');
     const [email, setemail] = useState('');
@@ -40,7 +44,8 @@ const Registerscreen = () => {
                 setpassword('');
                 setcpassword('');
                 localStorage.setItem('currentuser', JSON.stringify(result));
-                window.location.href = "/home"
+                // window.location.href = "/home"
+                navigate("/home")
             } catch (error) {
                 console.log(error)
                 setloading(false)
